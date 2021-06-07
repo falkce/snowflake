@@ -1,0 +1,46 @@
+CREATE OR REPLACE FUNCTION PUBLIC.CONVERT_US7ASCII(A VARCHAR)
+  RETURNS VARCHAR
+COMMENT = 'Converts a varchar with special characters (e.g. ä, ö, ß) to varchar with matching normal characters.'
+AS
+$$
+translate(A,
+'ÄäÀàÁáÂâÃãÅåǍǎĄąĂăÆæĀā
+ÇçĆćĈĉČč
+ĎđĐďð
+ÈèÉéÊêËëĚěĘęĖėĒē
+ĜĝĢģĞğ
+Ĥĥ
+ÌìÍíÎîÏïıĪīĮį
+Ĵĵ
+Ķķ
+ĹĺĻļŁłĽľĿŀ
+ÑñŃńŇňŅņ
+ÖöÒòÓóÔôÕõŐőØøŒœ
+ŔŕŘř
+ẞßŚśŜŝŞşŠšȘș
+ŤťŢţÞþȚț
+ÜüÙùÚúÛûŰűŨũŲųŮůŪū
+Ŵŵ
+ÝýŸÿŶŷ
+ŹźŽžŻż',
+'AaAaAaAaAaAaAaAaAaAaAa
+CcCcCcCc
+DdDdo
+EeEeEeEeEeEeEeEe
+GgGgGg
+Hh
+IiIiIiIilIiIi
+JJ
+Kk
+LlLlLlLlLl
+NnNnNnNn
+OoOoOoOoOoOoOooo
+RrRr
+ssSsSsSsSsSs
+TtTtÞbTt
+UuUuUuUuUuUuUuUuUu
+Ww
+YyYyYy
+ZzZzZz')
+$$
+;
